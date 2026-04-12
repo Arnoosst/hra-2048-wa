@@ -1,19 +1,34 @@
-import Tile from "./Tile.tsx";
-import { mockGameStates } from "../data/mockGameData.ts";
+import type { Board } from "../types";
 
-const GameBoard = () => {
-    const game = mockGameStates[0];
-
-    return (
-        <section>
-            <h2>Game Board</h2>
-            <div>
-                {game.tiles.map((tile) => (
-                    <Tile key={tile.id} value={tile.value} />
-                ))}
-            </div>
-        </section>
-    );
+type Props = {
+    board: Board;
 };
 
-export default GameBoard;
+export default function GameBoard({ board }: Props) {
+    return (
+        <div style={{ marginTop: "20px" }}>
+            {board.map((row, rowIndex) => (
+                <div key={rowIndex} style={{ display: "flex" }}>
+                    {row.map((cell, colIndex) => (
+                        <div
+                            key={colIndex}
+                            style={{
+                                width: "60px",
+                                height: "60px",
+                                border: "1px solid black",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                fontSize: "20px",
+                                background: "#eeeeee",
+                                color: "black",
+                            }}
+                        >
+                            {cell ?? ""}
+                        </div>
+                    ))}
+                </div>
+            ))}
+        </div>
+    );
+}

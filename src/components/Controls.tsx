@@ -1,10 +1,11 @@
-
-const Controls = () => {
-    return (
-        <div>
-            <button>New Game</button>
-        </div>
-    );
+type Props = {
+    onNewGame: () => void;
 };
 
-export default Controls;
+export default function Controls({ onNewGame }: Props) {
+    return (
+        <div>
+            <button onClick={onNewGame}>New Game</button>
+        </div>
+    );
+}

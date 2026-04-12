@@ -1,15 +1,14 @@
-import { mockGameStates } from "../data/mockGameData.ts";
+type Props = {
+    score: number;
+    bestScore: number;
+};
 
-const Header = () => {
-    const game = mockGameStates[0];
-
+export default function Header({ score, bestScore }: Props) {
     return (
         <header>
             <h1>2048</h1>
-            <p>Score: {game.score}</p>
-            <p>Best: {game.bestScore}</p>
+            <p>Score: {score}</p>
+            <p>Best: {bestScore}</p>
         </header>
     );
-};
-
-export default Header;
+}
