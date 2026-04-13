@@ -1,16 +1,35 @@
-import Tile from "./Tile.tsx";
-import { mockGameStates } from "../data/mockGameData.ts";
+import "./GameBoard.css";
+import type { Board } from "../types";
+import Tile from "./Tile";
 
-const GameBoard = () => {
-    const game = mockGameStates[0];
+type Props = { board: Board; };
 
+const GameBoard = ({ board }: Props) => {
     return (
-        <section>
-            <h2>Game Board</h2>
-            <div>
-                {game.tiles.map((tile) => (
-                    <Tile key={tile.id} value={tile.value} />
+        <section className="gameboard-wrapper">
+            <div className="gameboard">
+                {/* prazdne*/}
+                {Array.from({ length: 16 }).map((_, i) => (
+                    <div key={i} className="gameboard__cell" />
                 ))}
+                {/* dlazdice */}
+                {board.map((row, rowIndex) =>
+                    row.map((cell, colIndex) =>
+                        cell ? (
+                            <div
+                                key={`${rowIndex}-${colIndex}`}
+                                className="gameboard__tile"
+                                style={{ gridRow: rowIndex + 1, gridColumn: colIndex + 1 }}
+                            >
+                                <Tile value={cell} />
+                            </div>
+                        ) : null
+                    )
+                )}
+            </div>
+            <p className="gameboard__hint">Posouvej dlaždice (šipky nebo swipe)</p>
+            <div className="gameboard__arrows" aria-hidden="true">
+                <span>↑</span><span>↓</span><span>←</span><span>→</span>
             </div>
         </section>
     );

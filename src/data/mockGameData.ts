@@ -1,4 +1,4 @@
-import type { GameState } from "../../../src/types.ts";
+import type { GameState } from "../types.ts";
 
 export const mockGameStates: GameState[] = [
     {

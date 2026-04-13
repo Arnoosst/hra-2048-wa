@@ -1,0 +1,92 @@
+.controls {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+/* Základní tlačítko */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: var(--board-radius);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition:
+            background-color var(--transition-fast),
+            transform var(--transition-fast),
+            box-shadow var(--transition-fast),
+            opacity var(--transition-fast);
+    user-select: none;
+}
+
+/* Primary – žlutá (START GAME) */
+.btn--primary {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+.btn--primary:hover {
+    background-color: #e0a018;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(242, 176, 30, 0.4);
+}
+.btn--primary:active {
+    transform: translateY(0);
+    box-shadow: none;
+    opacity: 0.9;
+}
+.btn--primary:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+/* Secondary – béžová (UNDO, RESTART, MENU) */
+.btn--secondary {
+    background-color: var(--board-bg);
+    color: #f9f6f2;
+}
+.btn--secondary:hover {
+    background-color: #a89690;
+    transform: translateY(-1px);
+}
+.btn--secondary:active {
+    transform: translateY(0);
+    opacity: 0.85;
+}
+.btn--secondary:focus-visible {
+    outline: 3px solid var(--board-bg);
+    outline-offset: 3px;
+}
+
+/* Ghost / outline varianta */
+.btn--ghost {
+    background-color: transparent;
+    color: var(--color-text-secondary);
+    border: 2px solid var(--board-bg);
+}
+.btn--ghost:hover {
+    background-color: rgba(187, 173, 160, 0.15);
+}
+.btn--ghost:active {
+    background-color: rgba(187, 173, 160, 0.3);
+}
+
+/* Disabled state */
+.btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Tablet+ */
+@media (min-width: 480px) {
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}

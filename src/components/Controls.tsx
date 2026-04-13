@@ -1,8 +1,13 @@
+import "./Controls.css";
 
-const Controls = () => {
+type Props = { onNewGame: () => void; };
+
+const Controls = ({ onNewGame }: Props) => {
     return (
-        <div>
-            <button>New Game</button>
+        <div className="controls">
+            <button className="btn btn--secondary" onClick={onNewGame}>↩ Zpět</button>
+            <button className="btn btn--secondary" onClick={onNewGame}>↺ Restart</button>
+            <button className="btn btn--secondary">≡ Menu</button>
         </div>
     );
 };
