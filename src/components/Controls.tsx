@@ -1,11 +1,15 @@
-type Props = {
-    onNewGame: () => void;
-};
+import "./Controls.css";
 
-export default function Controls({ onNewGame }: Props) {
+type Props = { onNewGame: () => void; };
+
+const Controls = ({ onNewGame }: Props) => {
     return (
-        <div>
-            <button onClick={onNewGame}>New Game</button>
+        <div className="controls">
+            <button className="btn btn--secondary" onClick={onNewGame}>↩ Zpět</button>
+            <button className="btn btn--secondary" onClick={onNewGame}>↺ Restart</button>
+            <button className="btn btn--secondary">≡ Menu</button>
         </div>
     );
-}
+};
+
+export default Controls;

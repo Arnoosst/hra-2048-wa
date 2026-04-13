@@ -1,0 +1,72 @@
+.tile {
+    /* Pozicování se řeší v GameBoard přes CSS grid-area */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--tile-radius);
+    font-weight: 800;
+    font-family: var(--font-sans);
+    line-height: 1;
+    user-select: none;
+    transition:
+            background-color 0.1s ease,
+            transform 0.1s ease;
+
+
+    animation: tile-appear 0.15s ease forwards;
+}
+
+@keyframes tile-appear {
+    0%   { transform: scale(0); }
+    60%  { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Velikosti fontu */
+.tile--font-large  { font-size: clamp(20px, 5vw, 36px); }
+.tile--font-medium { font-size: clamp(16px, 4vw, 28px); }
+.tile--font-small  { font-size: clamp(12px, 3vw, 22px); }
+
+/* ============ BARVY DLE HODNOTY ============ */
+
+/* Tmavý text pro světlé dlaždice */
+.tile--4 {
+    color: #776e65;
+}
+.tile--2 {
+    background-color: #EEE4DA;  /* světlá béžová */
+    color: #776e65;
+}
+
+/* Světlý text pro tmavší dlaždice */
+.tile--8,  .tile--16, .tile--32, .tile--64,
+.tile--128, .tile--256, .tile--512,
+.tile--1024, .tile--2048, .tile--high {
+    color: #f9f6f2;
+}
+
+.tile--2    { background-color: var(--color-tile-2); }
+.tile--4    { background-color: var(--color-tile-4); }
+.tile--8    { background-color: var(--color-tile-8); }
+.tile--16   { background-color: var(--color-tile-16); }
+.tile--32   { background-color: var(--color-tile-32); }
+.tile--64   { background-color: var(--color-tile-64); }
+.tile--128  { background-color: var(--color-tile-128); }
+.tile--256  { background-color: var(--color-tile-256); }
+.tile--512  { background-color: var(--color-tile-512); }
+.tile--1024 { background-color: var(--color-tile-1024); }
+
+/* Speciální – výherní dlaždice */
+.tile--2048 {
+    background-color: var(--color-tile-2048);
+    box-shadow: 0 0 24px rgba(237, 194, 46, 0.6);
+    animation: tile-win 0.3s ease forwards;
+}
+
+@keyframes tile-win {
+    0%   { transform: scale(0); }
+    50%  { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.tile--high { background-color: var(--color-tile-high); }

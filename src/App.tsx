@@ -9,36 +9,27 @@ function App() {
     const { board, score, bestScore, gameOver, won, move, resetGame } = use2048();
 
     useEffect(() => {
-        const handleKeyDown = (event: KeyboardEvent) => {
-            switch (event.key) {
-                case "ArrowLeft":
-                    move("left");
-                    break;
-                case "ArrowRight":
-                    move("right");
-                    break;
-                case "ArrowUp":
-                    move("up");
-                    break;
-                case "ArrowDown":
-                    move("down");
-                    break;
-            }
+        const handleKeyDown = (e: KeyboardEvent) => {
+            const map: Record<string, "left"|"right"|"up"|"down"> = {
+                ArrowLeft: "left", ArrowRight: "right",
+                ArrowUp: "up", ArrowDown: "down",
+            };
+            if (map[e.key]) move(map[e.key]);
         };
-
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, [move]);
 
     return (
-        <main style={{ padding: "20px" }}>
+        <div className="app">
             <Header score={score} bestScore={bestScore} />
-            <Controls onNewGame={resetGame} />
-            <GameBoard board={board} />
-
-            {won && <p>Vyhrál jsi!</p>}
-            {gameOver && <p>Konec hry!</p>}
-        </main>
+            <main className="app__main">
+                <Controls onNewGame={resetGame} />
+                <GameBoard board={board} />
+                {won && <p className="status status--win"> Vyhrál jsi!</p>}
+                {gameOver && <p className="status status--over"> Konec hry!</p>}
+            </main>
+        </div>
     );
 }
 
