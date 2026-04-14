@@ -1,7 +1,8 @@
 .controls {
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
     gap: 8px;
 }
 
@@ -62,7 +63,7 @@
     outline-offset: 3px;
 }
 
-
+/* Ghost / outline varianta */
 .btn--ghost {
     background-color: transparent;
     color: var(--color-text-secondary);

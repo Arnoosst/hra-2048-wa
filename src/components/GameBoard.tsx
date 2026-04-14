@@ -27,10 +27,7 @@ const GameBoard = ({ board }: Props) => {
                 )}
             </div>
 
-            <p className="gameboard__hint">Posouvej dlaždice (šipky nebo swipe)</p>
-            <div className="gameboard__arrows" aria-hidden="true">
-                <span>↑</span><span>↓</span><span>←</span><span>→</span>
-            </div>
+
         </section>
     );
 };

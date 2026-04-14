@@ -10,12 +10,16 @@ function App() {
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
-            const map: Record<string, "left"|"right"|"up"|"down"> = {
-                ArrowLeft: "left", ArrowRight: "right",
-                ArrowUp: "up", ArrowDown: "down",
+            const map: Record<string, "left" | "right" | "up" | "down"> = {
+                ArrowLeft: "left",
+                ArrowRight: "right",
+                ArrowUp: "up",
+                ArrowDown: "down",
             };
+
             if (map[e.key]) move(map[e.key]);
         };
+
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, [move]);
@@ -23,11 +27,22 @@ function App() {
     return (
         <div className="app">
             <Header score={score} bestScore={bestScore} />
+
             <main className="app__main">
-                <Controls onNewGame={resetGame} />
                 <GameBoard board={board} />
-                {won && <p className="status status--win"> Vyhrál jsi!</p>}
-                {gameOver && <p className="status status--over"> Konec hry!</p>}
+
+                <Controls onNewGame={resetGame} />
+
+                <div className="gameboard__hint">
+                    Posouvej dlaždice (šipky nebo swipe)
+                </div>
+
+                <div className="gameboard__arrows">
+                    ↑ ↓ ← →
+                </div>
+
+                {won && <p className="status status--win">Vyhrál jsi!</p>}
+                {gameOver && <p className="status status--over">Konec hry!</p>}
             </main>
         </div>
     );
