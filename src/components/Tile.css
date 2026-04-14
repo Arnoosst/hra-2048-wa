@@ -1,5 +1,5 @@
 .tile {
-    /* Pozicování se řeší v GameBoard přes CSS grid-area */
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,18 +27,16 @@
 .tile--font-medium { font-size: clamp(16px, 4vw, 28px); }
 .tile--font-small  { font-size: clamp(12px, 3vw, 22px); }
 
-/* ============ BARVY DLE HODNOTY ============ */
 
-/* Tmavý text pro světlé dlaždice */
 .tile--4 {
     color: #776e65;
 }
 .tile--2 {
-    background-color: #EEE4DA;  /* světlá béžová */
+    background-color: #EEE4DA;
     color: #776e65;
 }
 
-/* Světlý text pro tmavší dlaždice */
+
 .tile--8,  .tile--16, .tile--32, .tile--64,
 .tile--128, .tile--256, .tile--512,
 .tile--1024, .tile--2048, .tile--high {

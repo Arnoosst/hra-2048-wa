@@ -1,11 +1,11 @@
 .header {
     display: flex;
     align-items: center;
-    justify-content: space-between;  /* 2048 vlevo, zbytek vpravo */
+    justify-content: space-between;
 }
 
 .header__title {
-    order: -1;  /* 2048 jako první */
+    order: -1;  /
 }
 
 .header__scores {

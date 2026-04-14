@@ -25,7 +25,7 @@
     user-select: none;
 }
 
-/* Primary – žlutá (START GAME) */
+
 .btn--primary {
     background-color: var(--color-primary);
     color: #fff;
@@ -45,7 +45,6 @@
     outline-offset: 3px;
 }
 
-/* Secondary – béžová (UNDO, RESTART, MENU) */
 .btn--secondary {
     background-color: var(--board-bg);
     color: #f9f6f2;
@@ -63,7 +62,7 @@
     outline-offset: 3px;
 }
 
-/* Ghost / outline varianta */
+
 .btn--ghost {
     background-color: transparent;
     color: var(--color-text-secondary);

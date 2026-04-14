@@ -17,26 +17,26 @@
     background-color: var(--board-bg);
     border-radius: var(--board-radius);
 
-    /* Responzivní velikost – zabere šířku kontejneru */
+
     width: 100%;
     max-width: 360px;
     aspect-ratio: 1 / 1;
 }
 
-/* Prázdné buňky (slot v mřížce) */
+/* prazdny pole */
 .gameboard__cell {
     background-color: var(--cell-bg);
     border-radius: var(--tile-radius);
 }
 
-/* Kontejner pro dlaždici – překrývá grid přes grid-area */
+
 .gameboard__tile {
     position: absolute;
-    /* Velikost jedné buňky dynamicky */
+
     width: calc((100% - 2 * var(--board-padding) - 3 * var(--board-gap)) / 4);
     height: calc((100% - 2 * var(--board-padding) - 3 * var(--board-gap)) / 4);
 
-    /* Pozice se počítá z grid-row a grid-column přes JS inline styly */
+
     top: calc(
             var(--board-padding) +
             (var(--grid-row, 1) - 1) *
@@ -51,7 +51,7 @@
     transition: top 0.1s ease, left 0.1s ease;
 }
 
-/* Jednodušší varianta: použijeme CSS grid přímo na tile */
+
 .gameboard__tile {
     position: unset;
     width: unset;
@@ -60,13 +60,13 @@
     left: unset;
 }
 
-/* Tile vyplní celou buňku */
+
 .gameboard__tile .tile {
     width: 100%;
     height: 100%;
 }
 
-/* ============ NÁPOVĚDA ============ */
+/* -- NÁPOVĚDA ---- */
 .gameboard__hint {
     font-size: 13px;
     color: var(--color-text-secondary);
