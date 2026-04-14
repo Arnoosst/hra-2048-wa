@@ -57,5 +57,11 @@ export function use2048() {
         won,
         move,
         resetGame,
+
+        // 🆕 DŮLEŽITÉ PRO UNDO
+        setBoard,
+        setScore,
+        setGameOver,
+        setWon,
     };
 }
