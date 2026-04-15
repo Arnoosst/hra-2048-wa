@@ -1,0 +1,69 @@
+﻿.howto {
+    width: 100%;
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 16px;
+    background: var(--color-background);
+}
+
+.howto__phone {
+    width: 100%;
+    max-width: 360px;
+    min-height: 640px;
+    background: var(--color-surface);
+    border: 3px solid #2d2d2d;
+    border-radius: 24px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.howto__header {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.howto__title {
+    font-size: 36px;
+    text-align: center;
+    color: #2d2d2d;
+}
+
+.howto__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.howto__example {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.howto__tile {
+    width: 50px;
+    height: 50px;
+    background: var(--color-tile-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    border-radius: 6px;
+}
+
+.howto__tile--result {
+    background: var(--color-tile-4);
+}
+
+.howto__plus,
+.howto__equals {
+    font-size: 18px;
+    font-weight: 700;
+}

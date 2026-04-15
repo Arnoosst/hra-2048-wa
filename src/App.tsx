@@ -1,50 +1,62 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
-import { use2048 } from "./hooks/use2048";
-import Header from "./components/Header";
-import Controls from "./components/Controls";
-import GameBoard from "./components/GameBoard";
+import Game from "./components/Game";
+import MainMenu from "./components/MainMenu";
+import PauseModal from "./components/PauseModal";
+import HowToPlay from "./components/HowToPlay";
 
 function App() {
-    const { board, score, bestScore, gameOver, won, move, resetGame } = use2048();
+    const [screen, setScreen] = useState<"menu" | "game" | "howto">("menu");
+    const [paused, setPaused] = useState(false);
+    const [gameKey, setGameKey] = useState(0);
 
-    useEffect(() => {
-        const handleKeyDown = (e: KeyboardEvent) => {
-            const map: Record<string, "left" | "right" | "up" | "down"> = {
-                ArrowLeft: "left",
-                ArrowRight: "right",
-                ArrowUp: "up",
-                ArrowDown: "down",
-            };
+    const handleStartGame = () => {
+        setPaused(false);
+        setGameKey((prev) => prev + 1);
+        setScreen("game");
+    };
 
-            if (map[e.key]) move(map[e.key]);
-        };
+    const handleOpenMenu = () => {
+        setPaused(false);
+        setScreen("menu");
+    };
 
-        window.addEventListener("keydown", handleKeyDown);
-        return () => window.removeEventListener("keydown", handleKeyDown);
-    }, [move]);
+    const handleRestartFromPause = () => {
+        setPaused(false);
+        setGameKey((prev) => prev + 1);
+        setScreen("game");
+    };
 
     return (
-        <div className="app">
-            <Header score={score} bestScore={bestScore} />
+        <>
+            {screen === "menu" && (
+                <MainMenu
+                    onStart={handleStartGame}
+                    onHowTo={() => setScreen("howto")}
+                />
+            )}
 
-            <main className="app__main">
-                <GameBoard board={board} />
+            {screen === "howto" && (
+                <HowToPlay onBack={handleOpenMenu} />
+            )}
 
-                <Controls onNewGame={resetGame} />
+            {screen === "game" && (
+                <Game
+                    key={gameKey}
+                    paused={paused}
+                    onPause={() => setPaused(true)}
+                    onMenu={handleOpenMenu}
+                />
+            )}
 
-                <div className="gameboard__hint">
-                    Posouvej dlaždice (šipky nebo swipe)
-                </div>
-
-                <div className="gameboard__arrows">
-                    ↑ ↓ ← →
-                </div>
-
-                {won && <p className="status status--win">Vyhrál jsi!</p>}
-                {gameOver && <p className="status status--over">Konec hry!</p>}
-            </main>
-        </div>
+            {paused && (
+                <PauseModal
+                    onResume={() => setPaused(false)}
+                    onRestart={handleRestartFromPause}
+                    onExit={handleOpenMenu}
+                />
+            )}
+        </>
     );
 }
 

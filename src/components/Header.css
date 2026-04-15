@@ -2,10 +2,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
 }
 
 .header__title {
-    order: -1;  /
+    order: -1;
+    font-size: 56px;
+    font-weight: 800;
 }
 
 .header__scores {
@@ -14,7 +17,6 @@
     align-items: center;
 }
 
-/* Score card */
 .score-card {
     background: var(--board-bg);
     color: #f9f6f2;
@@ -45,7 +47,6 @@
     line-height: 1.2;
 }
 
-/* Tablet+ */
 @media (min-width: 480px) {
     .header__title {
         font-size: 64px;

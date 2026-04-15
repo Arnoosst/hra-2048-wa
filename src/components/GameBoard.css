@@ -17,10 +17,14 @@
     background-color: var(--board-bg);
     border-radius: var(--board-radius);
 
-
     width: 100%;
     max-width: 360px;
     aspect-ratio: 1 / 1;
+
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
 }
 
 /* prazdny pole */
@@ -29,13 +33,11 @@
     border-radius: var(--tile-radius);
 }
 
-
 .gameboard__tile {
     position: absolute;
 
     width: calc((100% - 2 * var(--board-padding) - 3 * var(--board-gap)) / 4);
     height: calc((100% - 2 * var(--board-padding) - 3 * var(--board-gap)) / 4);
-
 
     top: calc(
             var(--board-padding) +
@@ -51,7 +53,6 @@
     transition: top 0.1s ease, left 0.1s ease;
 }
 
-
 .gameboard__tile {
     position: unset;
     width: unset;
@@ -59,7 +60,6 @@
     top: unset;
     left: unset;
 }
-
 
 .gameboard__tile .tile {
     width: 100%;
