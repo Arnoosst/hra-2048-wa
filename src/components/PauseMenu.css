@@ -1,0 +1,108 @@
+.pause-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1000;
+}
+
+.pause-modal {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+    background: #f7f3eb;
+    border: 2px solid #2f2f2f;
+    border-radius: 14px;
+    padding: 18px 14px 14px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    text-align: center;
+}
+
+.pause-modal__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: #2f2f2f;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.pause-modal__close:hover {
+    transform: scale(1.05);
+}
+
+.pause-modal__close:active {
+    transform: scale(0.98);
+}
+
+.pause-modal__title {
+    margin: 8px 0 18px;
+    font-size: 18px;
+    font-weight: 800;
+    color: #2f2f2f;
+}
+
+.pause-modal__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pause-action {
+    width: 100%;
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 2px solid #2f2f2f;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+    cursor: pointer;
+}
+
+.pause-action:hover {
+    transform: translateY(-1px);
+}
+
+.pause-action:active {
+    transform: translateY(0);
+}
+
+.pause-action--primary {
+    background: #f2b01e;
+    color: #2f2f2f;
+}
+
+.pause-action--primary:hover {
+    background: #e0a018;
+}
+
+.pause-action--secondary {
+    background: #ffffff;
+    color: #2f2f2f;
+}
+
+.pause-action--secondary:hover {
+    background: #f3efe7;
+}
+
+.pause-modal__text {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #5f6368;
+}
