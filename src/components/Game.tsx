@@ -2,6 +2,7 @@
 import Header from "./Header";
 import GameBoard from "./GameBoard";
 import Controls from "./Controls";
+import GameOverScreen from "./GameOverScreen";
 import { use2048 } from "../hooks/use2048";
 import type { Direction } from "../types";
 
@@ -67,9 +68,20 @@ export default function Game({ paused, onPause, onMenu }: Props) {
             />
 
             <main className="app__main">
+                {/* GAME OVER / WIN SCREEN */}
+                {(gameOver || won) && (
+                    <GameOverScreen
+                        score={score}
+                        bestScore={bestScore}
+                        won={won}
+                        onRestart={resetGame}
+                        onMenu={onMenu}
+                    />
+                )}
+
                 <GameBoard
                     board={board}
-                    disabled={paused}
+                    disabled={paused || gameOver}
                     onSwipe={move}
                 />
 
@@ -82,14 +94,12 @@ export default function Game({ paused, onPause, onMenu }: Props) {
             </main>
 
             <footer className="app__footer">
-                {gameOver ? (
-                    <strong>Game Over</strong>
-                ) : won ? (
-                    <strong>You reached 2048!</strong>
-                ) : (
+                {!gameOver && !won && (
                     <>
                         Posouvej dlaždice (šipky nebo swipe)
-                        <div style={{ marginTop: 8, fontSize: 28 }}>↑ ↓ ← →</div>
+                        <div style={{ marginTop: 8, fontSize: 28 }}>
+                            ↑ ↓ ← →
+                        </div>
                     </>
                 )}
             </footer>
