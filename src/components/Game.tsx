@@ -68,7 +68,6 @@ export default function Game({ paused, onPause, onMenu }: Props) {
             />
 
             <main className="app__main">
-                {/* GAME OVER / WIN SCREEN */}
                 {(gameOver || won) && (
                     <GameOverScreen
                         score={score}

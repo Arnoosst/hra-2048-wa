@@ -49,7 +49,7 @@
     line-height: 1.2;
 }
 
-/* TABLETY */
+
 @media (min-width: 768px) {
     .header {
         max-width: 420px;
@@ -70,7 +70,7 @@
     }
 }
 
-/* DESKTOP */
+
 @media (min-width: 1024px) {
     .header {
         max-width: 520px;

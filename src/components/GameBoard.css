@@ -6,7 +6,7 @@
     width: 100%;
 }
 
-/* ============ HLAVNÍ MŘÍŽKA ============ */
+
 .gameboard {
     position: relative;
     display: grid;
@@ -27,31 +27,13 @@
     -webkit-touch-callout: none;
 }
 
-/* prazdny pole */
+
 .gameboard__cell {
     background-color: var(--cell-bg);
     border-radius: var(--tile-radius);
 }
 
-.gameboard__tile {
-    position: absolute;
 
-    width: calc((100% - 2 * var(--board-padding) - 3 * var(--board-gap)) / 4);
-    height: calc((100% - 2 * var(--board-padding) - 3 * var(--board-gap)) / 4);
-
-    top: calc(
-            var(--board-padding) +
-            (var(--grid-row, 1) - 1) *
-            ((100% - 2 * var(--board-padding) - 3 * var(--board-gap)) / 4 + var(--board-gap))
-    );
-    left: calc(
-            var(--board-padding) +
-            (var(--grid-col, 1) - 1) *
-            ((100% - 2 * var(--board-padding) - 3 * var(--board-gap)) / 4 + var(--board-gap))
-    );
-
-    transition: top 0.1s ease, left 0.1s ease;
-}
 
 .gameboard__tile {
     position: unset;
@@ -66,7 +48,7 @@
     height: 100%;
 }
 
-/* -- NÁPOVĚDA ---- */
+
 .gameboard__hint {
     font-size: 13px;
     color: var(--color-text-secondary);
@@ -80,7 +62,7 @@
     color: var(--color-text-secondary);
 }
 
-/* ============ TABLET+ ============ */
+
 @media (min-width: 480px) {
     .gameboard {
         max-width: 420px;
